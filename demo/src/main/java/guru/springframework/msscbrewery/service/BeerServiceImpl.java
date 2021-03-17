@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 import guru.springframework.msscbrewery.web.model.BeerDto;
 import guru.springframework.msscbrewery.web.model.BeerStyleEnum;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class BeerServiceImpl implements BeerService {
 
@@ -22,6 +23,25 @@ public class BeerServiceImpl implements BeerService {
                 .createdDate(OffsetDateTime.now())
                 .build();
 		
+	}
+
+	@Override
+	public BeerDto save(BeerDto beerDto) {
+		return BeerDto.builder()
+				.id(UUID.randomUUID())
+				.build();
+	}
+
+	@Override
+	public void updateBeer(UUID beerId, BeerDto beerDto) {
+		//todo Update this method
+		
+	}
+
+	@Override
+	public void delete(UUID beerId) {
+		// TODO Auto-generated method stub
+		log.debug("Deleting object");
 	}
 
 }
